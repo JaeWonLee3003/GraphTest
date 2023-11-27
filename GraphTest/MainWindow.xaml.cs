@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace GraphTest
 {
@@ -38,18 +39,43 @@ namespace GraphTest
 
         private void Timer_Tick(object sender, EventArgs e)
         {
+            int count = 70;
+
+            if (MainPolyline.Points.Count == 0)
+            {
+                int nextX = 0;
+                PointCollection pc = new PointCollection();
+                for (int i = 0; i < count; i++)
+                {
+                    int randomY = random.Next(30, 90);
+                    nextX += 50;
+                    pc.Add(new Point(nextX, randomY));
+                }
+                MainPolyline.Points = pc;
+            }
+            else
+            {
+                PointCollection pc = new PointCollection();
+                for (int i = 0; i < MainPolyline.Points.Count - 1; i++)
+                {
+                    // Index 단위로 Points List 에서 밀어내기
+                    pc.Add(new Point(MainPolyline.Points[i].X, MainPolyline.Points[i + 1].Y));
+                }
 
 
+                int randomY = random.Next(10, 50);
+                pc.Add(new Point(MainPolyline.Points[MainPolyline.Points.Count - 1].X, randomY));
 
 
-
+                MainPolyline.Points = pc;
+            }
 
 
 
 
 
             /*int count = 50;
-            if (FirstPolyline.Points.Count == 0)
+            if (MainPolyline.Points.Count == 0)
             {
                 PointCollection pc = new PointCollection();
                 int next = 150;
@@ -60,20 +86,20 @@ namespace GraphTest
                     next = priv + next;
 
                 }
-                FirstPolyline.Points = pc;
+                MainPolyline.Points = pc;
             }
             else
             {
                 PointCollection pc = new PointCollection();
-                for (int i = 0; i < FirstPolyline.Points.Count - 1; i++)
+                for (int i = 0; i < MainPolyline.Points.Count - 1; i++)
                 {
-                    pc.Add(new Point(FirstPolyline.Points[i].X, FirstPolyline.Points[i+1].Y));
+                    pc.Add(new Point(MainPolyline.Points[i].X, MainPolyline.Points[i+1].Y));
                 }
-                double next = (random.Next(40) - 20) + FirstPolyline.Points[FirstPolyline.Points.Count - 1].Y;
-                pc.Add(new Point(FirstPolyline.Points[FirstPolyline.Points.Count - 1].X, next));
+                double next = (random.Next(40) - 20) + MainPolyline.Points[MainPolyline.Points.Count - 1].Y;
+                pc.Add(new Point(MainPolyline.Points[MainPolyline.Points.Count - 1].X, next));
 
 
-                FirstPolyline.Points = pc;
+                MainPolyline.Points = pc;
             }*/
         }
 
