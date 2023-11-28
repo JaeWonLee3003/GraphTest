@@ -29,7 +29,7 @@ namespace GraphTest
         {
             InitializeComponent();
 
-            timer.Interval = TimeSpan.FromMilliseconds(1000);
+            timer.Interval = TimeSpan.FromMilliseconds(500);
             timer.Tick += Timer_Tick;
             timer.Start();
 
@@ -38,7 +38,7 @@ namespace GraphTest
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            int count = 70;
+            int count = 150;
 
             if (MainPolyline.Points.Count == 0)
             {
@@ -47,7 +47,7 @@ namespace GraphTest
                 for (int i = 0; i < count; i++)
                 {
                     int randomY = random.Next(130, 170);
-                    nextX += 50;
+                    nextX += 10;
                     pc.Add(new Point(nextX, randomY));
                 }
                 MainPolyline.Points = pc;
