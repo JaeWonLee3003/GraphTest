@@ -29,12 +29,11 @@ namespace GraphTest
         {
             InitializeComponent();
 
-            timer.Interval = TimeSpan.FromMilliseconds(100);
+            timer.Interval = TimeSpan.FromMilliseconds(1000);
             timer.Tick += Timer_Tick;
             timer.Start();
 
             /*RunButton.Click += RunButton_Click;*/
-            ExitButton.Click += ExitButton_Click;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -47,7 +46,7 @@ namespace GraphTest
                 PointCollection pc = new PointCollection();
                 for (int i = 0; i < count; i++)
                 {
-                    int randomY = random.Next(30, 90);
+                    int randomY = random.Next(130, 170);
                     nextX += 50;
                     pc.Add(new Point(nextX, randomY));
                 }
@@ -63,49 +62,12 @@ namespace GraphTest
                 }
 
 
-                int randomY = random.Next(10, 50);
+                int randomY = random.Next(130, 170);
                 pc.Add(new Point(MainPolyline.Points[MainPolyline.Points.Count - 1].X, randomY));
 
 
                 MainPolyline.Points = pc;
             }
-
-
-
-
-
-            /*int count = 50;
-            if (MainPolyline.Points.Count == 0)
-            {
-                PointCollection pc = new PointCollection();
-                int next = 150;
-                for (int i = 0; i < count; i++)
-                {
-                    pc.Add(new Point(i*20 + 10, next));
-                    int priv = random.Next(20) - 10;
-                    next = priv + next;
-
-                }
-                MainPolyline.Points = pc;
-            }
-            else
-            {
-                PointCollection pc = new PointCollection();
-                for (int i = 0; i < MainPolyline.Points.Count - 1; i++)
-                {
-                    pc.Add(new Point(MainPolyline.Points[i].X, MainPolyline.Points[i+1].Y));
-                }
-                double next = (random.Next(40) - 20) + MainPolyline.Points[MainPolyline.Points.Count - 1].Y;
-                pc.Add(new Point(MainPolyline.Points[MainPolyline.Points.Count - 1].X, next));
-
-
-                MainPolyline.Points = pc;
-            }*/
-        }
-
-        private void ExitButton_Click(object sender, RoutedEventArgs e)
-        {
-            Environment.Exit(0);
         }
     }
 }

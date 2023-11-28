@@ -6,64 +6,165 @@
         xmlns:local="clr-namespace:GraphTest"
         mc:Ignorable="d"
         Title="MainWindow"
-        Height="1080"
-        Width="1900">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="10*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Grid.Column="1">
+        Height="313" Width="1453" WindowStyle="None">
+    <Border BorderBrush="#FF32322E" BorderThickness="2" Background="#FF131313">
+        <Grid Background="Black">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="75*"/>
+                <ColumnDefinition Width="1324*"/>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid Grid.Column="1">
-                    <Button x:Name="ExitButton" Grid.Column="1" Background="Red" Foreground="White" Content="Exit" FontSize="28" FontWeight="Bold"/>
-                </Grid>
+            <Grid Grid.Column="1" Panel.ZIndex="1" Grid.ColumnSpan="2">
+                <Border x:Name="border" BorderBrush="Black" Height="15" VerticalAlignment="Top" Width="15" HorizontalAlignment="Left" Margin="280,1,0,0" Visibility="Collapsed">
+                    <Path Data="M0,0 L8,12 15,0 z" Fill="#FFFF6B40" Stroke="Black" StrokeThickness="0" HorizontalAlignment="Left"/>
+                </Border>
             </Grid>
-
+            <StackPanel Grid.ColumnSpan="1" HorizontalAlignment="Left" Margin="27,0,0,0">
+                <TextBlock Text="224" Margin="0,0,0,56" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                <TextBlock Text="222" Margin="0,0,0,56" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                <TextBlock Text="220" Margin="0,0,0,56" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                <TextBlock Text="218" Margin="0,0,0,56" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                <TextBlock Text="216" Margin="0,0,0,56" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+            </StackPanel>
+            <Canvas x:Name="GraphCanvas" Grid.Column="1" Panel.ZIndex="1" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
+                <Canvas.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="1" ScaleX="-1"/>
+                        <SkewTransform AngleY="0" AngleX="0"/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Canvas.RenderTransform>
+                <Path x:Name="MismatchPath" Data="" Canvas.Left="290" Stroke="#FFFFFFFF" Canvas.Top="-3" StrokeThickness="3" StrokeLineJoin="Bevel" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Margin="0,0,0,0" />
+            </Canvas>
+            <TextBlock x:Name="TitleTextBlock" Visibility="Collapsed" Text="Mismatch" VerticalAlignment="Top" Background="#FFF0F0F0" Margin="2,-9,0,0" FontSize="15" HorizontalAlignment="Left" FontWeight="Bold" Foreground="White"/>
+            <Border BorderBrush="White" BorderThickness="4" Grid.Column="1" Panel.ZIndex="9" d:IsHidden="True" Grid.ColumnSpan="2">
+                <Grid>
+                    <UniformGrid Rows="1" Columns="9" Panel.ZIndex="1">
+                        <TextBlock Text="1200" Foreground="White" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                        <TextBlock Text="1100" Foreground="White" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                        <TextBlock Text="1000" Foreground="White" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                        <TextBlock Text="900" Foreground="White" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                        <TextBlock Text="800" Foreground="White" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                        <TextBlock Text="700" Foreground="White" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                        <TextBlock Text="600" Foreground="White" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                        <TextBlock Text="500" Foreground="White" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                        <TextBlock Text="400" Foreground="White" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                    </UniformGrid>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="5*"/>
+                            <RowDefinition Height="5*"/>
+                            <RowDefinition Height="5*"/>
+                            <RowDefinition Height="5*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <Border BorderBrush="#FFFF6B40" BorderThickness="0,0,0,1"/>
+                        <Border BorderBrush="#FFE5E5DF" Grid.Row="1">
+                            <Path Data="M0,0 L1,0" Height="2" Stretch="Fill" Stroke="Yellow" VerticalAlignment="Bottom" StrokeDashArray="2 2"/>
+                        </Border>
+                        <Border BorderBrush="#FF00C5FF" BorderThickness="0,0,0,1" Grid.Row="2"/>
+                        <Border BorderBrush="#FFE5E5DF" Grid.Row="3">
+                            <Path Data="M0,0 L1,0" Height="2" Stretch="Fill" Stroke="Yellow" VerticalAlignment="Bottom" StrokeDashArray="2 2"/>
+                        </Border>
+                        <Border BorderBrush="#FFFF6B40" BorderThickness="0,0,0,1" Grid.Row="4"/>
+                    </Grid>
+                    <UniformGrid Rows="1" Columns="9" Panel.ZIndex="1">
+                        <Border BorderBrush="#FFE5E5DF" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                            <Path Data="M0,0 L0,1" Stretch="Fill" Stroke="#FF00C5FF" StrokeDashArray="2 2" HorizontalAlignment="Left"/>
+                        </Border>
+                        <Border BorderBrush="#FFE5E5DF" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                            <Path Data="M0,0 L0,1" Stretch="Fill" Stroke="#FF00C5FF" StrokeDashArray="2 2" HorizontalAlignment="Left"/>
+                        </Border>
+                        <Border BorderBrush="#FFE5E5DF" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                            <Path Data="M0,0 L0,1" Stretch="Fill" Stroke="#FF00C5FF" StrokeDashArray="2 2" HorizontalAlignment="Left"/>
+                        </Border>
+                        <Border BorderBrush="#FFE5E5DF" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                            <Path Data="M0,0 L0,1" Stretch="Fill" Stroke="#FF00C5FF" StrokeDashArray="2 2" HorizontalAlignment="Left"/>
+                        </Border>
+                        <Border BorderBrush="#FFE5E5DF" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                            <Path Data="M0,0 L0,1" Stretch="Fill" Stroke="#FF00C5FF" StrokeDashArray="2 2" HorizontalAlignment="Left"/>
+                        </Border>
+                        <Border BorderBrush="#FFE5E5DF" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                            <Path Data="M0,0 L0,1" Stretch="Fill" Stroke="#FF00C5FF" StrokeDashArray="2 2" HorizontalAlignment="Left"/>
+                        </Border>
+                        <Border BorderBrush="#FFE5E5DF" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                            <Path Data="M0,0 L0,1" Stretch="Fill" Stroke="#FF00C5FF" StrokeDashArray="2 2" HorizontalAlignment="Left"/>
+                        </Border>
+                        <Border BorderBrush="#FFE5E5DF" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                            <Path Data="M0,0 L0,1" Stretch="Fill" Stroke="#FF00C5FF" StrokeDashArray="2 2" HorizontalAlignment="Left"/>
+                        </Border>
+                        <Border BorderBrush="#FFE5E5DF" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                            <Path Data="M0,0 L0,1" Stretch="Fill" Stroke="#FF00C5FF" StrokeDashArray="2 2" HorizontalAlignment="Left"/>
+                        </Border>
+                    </UniformGrid>
+                </Grid>
+            </Border>
+            <Grid Grid.Column="1" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Polyline x:Name="MainPolyline" Grid.Column="1" StrokeThickness="3" Stroke="White"/>
+                <UniformGrid Grid.Column="1" Rows="1" Columns="18" Margin="0,1">
+                    <Border BorderBrush="Black" Background="#66FF9EF4" Margin="0">
+                        <TextBlock TextWrapping="Wrap" Text="Z18" VerticalAlignment="Bottom" TextAlignment="Center" Background="Black" Foreground="#FFFF9EF4" FontWeight="Bold" Margin="1,2"/>
+                    </Border>
+                    <Border BorderBrush="Black" Background="#669CBDFE" Margin="0">
+                        <TextBlock TextWrapping="Wrap" Text="Z17" VerticalAlignment="Bottom" TextAlignment="Center" Background="Black" Foreground="#FF9CBDFE" FontWeight="Bold" Margin="1,2"/>
+                    </Border>
+                    <Border BorderBrush="Black" Background="#666AE2D2" Margin="0">
+                        <TextBlock TextWrapping="Wrap" Text="Z16" VerticalAlignment="Bottom" TextAlignment="Center" Background="Black" Foreground="#FF6AE2D2" FontWeight="Bold" Margin="1,2"/>
+                    </Border>
+                    <Border BorderBrush="Black" Background="#66EC86F4" Margin="0">
+                        <TextBlock TextWrapping="Wrap" Text="Z15" VerticalAlignment="Bottom" TextAlignment="Center" Background="Black" Foreground="#FFEC86F4" FontWeight="Bold" Margin="1,2"/>
+                    </Border>
+                    <Border BorderBrush="Black" Background="#66E7D79A" Margin="0">
+                        <TextBlock TextWrapping="Wrap" Text="Z14" VerticalAlignment="Bottom" TextAlignment="Center" Background="Black" Foreground="#FFE7D79A" FontWeight="Bold" Margin="1,2"/>
+                    </Border>
+                    <Border BorderBrush="Black" Background="#66C095F6" Margin="0">
+                        <TextBlock TextWrapping="Wrap" Text="Z13" VerticalAlignment="Bottom" TextAlignment="Center" Background="Black" Foreground="#FFC095F6" FontWeight="Bold" Margin="1,2"/>
+                    </Border>
+                    <Border BorderBrush="Black" Background="#66FFABC4" Margin="0">
+                        <TextBlock TextWrapping="Wrap" Text="Z12" VerticalAlignment="Bottom" TextAlignment="Center" Background="Black" Foreground="#FFFFABC4" FontWeight="Bold" Margin="1,2"/>
+                    </Border>
+                    <Border BorderBrush="Black" Background="#636EDBB3" Margin="0">
+                        <TextBlock TextWrapping="Wrap" Text="Z11" VerticalAlignment="Bottom" TextAlignment="Center" Background="Black" Foreground="#FF6EDBB3" FontWeight="Bold" Margin="1,2"/>
+                    </Border>
+                    <Border BorderBrush="Black" Background="#66C3FB16" Margin="0">
+                        <TextBlock TextWrapping="Wrap" Text="Z10" VerticalAlignment="Bottom" TextAlignment="Center" Background="Black" Foreground="#FFC3FB16" FontWeight="Bold" Margin="1,2"/>
+                    </Border>
+                    <Border BorderBrush="Black" Background="#63DFB3AF" Margin="0">
+                        <TextBlock TextWrapping="Wrap" Text="Z9" VerticalAlignment="Bottom" TextAlignment="Center" Background="Black" Foreground="#FFDFB3AF" FontWeight="Bold" Margin="1,2"/>
+                    </Border>
+                    <Border BorderBrush="Black" Background="#64FFD91A" Margin="0">
+                        <TextBlock TextWrapping="Wrap" Text="Z8" VerticalAlignment="Bottom" TextAlignment="Center" Background="Black" Foreground="#FFFFD91A" FontWeight="Bold" Margin="1,2"/>
+                    </Border>
+                    <Border BorderBrush="Black" Background="#66B2CD98" Margin="0">
+                        <TextBlock TextWrapping="Wrap" Text="Z7" VerticalAlignment="Bottom" TextAlignment="Center" Background="Black" Foreground="#FFB2CD98" FontWeight="Bold" Margin="1,2"/>
+                    </Border>
+                    <Border BorderBrush="Black" Background="#66A986EA" Margin="0">
+                        <TextBlock TextWrapping="Wrap" Text="Z6" VerticalAlignment="Bottom" TextAlignment="Center" Background="Black" Foreground="#FFA986EA" FontWeight="Bold" Margin="1,2"/>
+                    </Border>
+                    <Border BorderBrush="Black" Background="#66FFAF7F" Margin="0">
+                        <TextBlock TextWrapping="Wrap" Text="Z5" VerticalAlignment="Bottom" TextAlignment="Center" Background="Black" Foreground="#FFFFAF7F" FontWeight="Bold" Margin="1,2"/>
+                    </Border>
+                    <Border BorderBrush="Black" Background="#667ED8C7" Margin="0">
+                        <TextBlock TextWrapping="Wrap" Text="Z4" VerticalAlignment="Bottom" TextAlignment="Center" Background="Black" Foreground="#FF7ED8C7" FontWeight="Bold" Margin="1,2"/>
+                    </Border>
+                    <Border BorderBrush="Black" Background="#664999D7" Margin="0">
+                        <TextBlock TextWrapping="Wrap" Text="Z3" VerticalAlignment="Bottom" TextAlignment="Center" Background="Black" Foreground="#FF4999D7" FontWeight="Bold" Margin="1,2"/>
+                    </Border>
+                    <Border BorderBrush="Black" Background="#66F49474" Margin="0">
+                        <TextBlock TextWrapping="Wrap" Text="Z2" VerticalAlignment="Bottom" TextAlignment="Center" Background="Black" Foreground="#FFF49474" FontWeight="Bold" Margin="1,2"/>
+                    </Border>
+                    <Border BorderBrush="Black" Background="#66DB5B84" Margin="0">
+                        <TextBlock TextWrapping="Wrap" Text="Z1" VerticalAlignment="Bottom" TextAlignment="Center" Background="Black" Foreground="#FFDB5B84" FontWeight="Bold" Margin="1,2"/>
+                    </Border>
+                </UniformGrid>
+            </Grid>
         </Grid>
-        <Grid x:Name="MainCanvas" Grid.Row="1" Grid.Column="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0" Background="Red" Opacity="0.5"/>
-            <Grid Grid.Column="1" Background="Green" Opacity="0.5"/>
-            <Grid Grid.Column="2" Background="SkyBlue" Opacity="0.5"/>
-            <Grid Grid.Column="3" Background="Orange" Opacity="0.5"/>
-            <Grid Grid.Column="4" Background="Purple" Opacity="0.5"/>
-            <Grid Grid.Column="5" Background="Yellow" Opacity="0.5"/>
-            <Grid Grid.Column="6" Background="Blue" Opacity="0.5"/>
-            <Grid Grid.Column="7" Background="Pink" Opacity="0.5"/>
-            <Grid Grid.Column="9" Background="Brown" Opacity="0.5"/>
-            <Grid Grid.Column="8" Background="Black" Opacity="0.5"/>
-            <Polyline Grid.ColumnSpan="10" x:Name="MainPolyline" StrokeThickness="5" Stroke="White" Panel.ZIndex="99"/>
-        </Grid>
-        <Image Margin="189,0,-1123,8" Source="/Image1.png" Grid.Column="2" Grid.RowSpan="3"/>
-        <Image Margin="-1504,-36,237,747" Source="/graph.png" Stretch="Fill" Grid.RowSpan="2"/>
-
-
-    </Grid>
+    </Border>
 </Window>
